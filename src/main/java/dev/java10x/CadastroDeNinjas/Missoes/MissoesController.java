@@ -13,4 +13,13 @@ public class MissoesController {
         return "Essa é minha primeira mensagem nessa rota de Missões";
     }
 
+    // Adicionar missao (CREATE)
+
+    // Mostrar todas as missoes (READ)
+
+    // Mostrar missao por ID (READ)
+
+    // Alterar dados das missoes (UPDATE)
+
+
 }
