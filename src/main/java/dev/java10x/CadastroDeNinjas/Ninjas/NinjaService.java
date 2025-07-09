@@ -2,6 +2,7 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NinjaService {
@@ -18,8 +19,9 @@ public class NinjaService {
     }
 
     // Listar todos os ninjas por ID
-    public List<NinjaModel> listarNinjasPorId(Long id) {
-        return ninjarepository.findAllById(List.of(id));
+    public NinjaModel listarNinjasPorId(Long id) {
+        Optional<NinjaModel> ninjaPorId = ninjarepository.findById(id);
+        return ninjaPorId.orElse(null);
     }
 
 }
