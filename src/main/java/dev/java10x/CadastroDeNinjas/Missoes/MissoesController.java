@@ -33,6 +33,12 @@ public class MissoesController {
         return missoesservice.listarMissoes();
     }
 
+    // Mostrar todas as missoes por ID
+    @GetMapping("/listar/{id}")
+    public MissoesModel listarMissoesPorId(@PathVariable Long id) {
+        return missoesservice.listarMissoesPorId(id);
+    }
+
     // PUT -- Mandar uma requisicao para alterar uma missao
     // Alterar dados das missoes (UPDATE)
     @PutMapping("/alterar")
