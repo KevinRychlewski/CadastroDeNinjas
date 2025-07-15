@@ -24,4 +24,9 @@ public class MissoesService {
         Optional<MissoesModel> missoesPorId = missoesrepository.findById(id);
         return missoesPorId.orElse(null);
     }
+
+    // Deletar missao por ID
+    public void deletarMissoaoPorId(Long id) {
+        missoesrepository.deleteById(id);
+    }
 }

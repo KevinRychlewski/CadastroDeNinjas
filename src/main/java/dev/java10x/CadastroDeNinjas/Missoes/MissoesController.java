@@ -49,8 +49,8 @@ public class MissoesController {
     // GET -- Mandar uma requisicao para mostrar uma missao por ID
     // Deletar missao (DELETE)
     @DeleteMapping("/deletar")
-    public String deletarMissao() {
-        return "Missao deletada com sucesso!";
+    public void deletarMissao(Long id) {
+        missoesservice.deletarMissoaoPorId(id);
     }
 
 
