@@ -9,9 +9,11 @@ import java.util.List;
 public class MissoesController {
 
     private MissoesService missoesservice;
+    private MissoesMapper missoesMapper;
 
-    public MissoesController(MissoesService missoesservice) {
+    public MissoesController(MissoesService missoesservice, MissoesMapper missoesMapper) {
         this.missoesservice = missoesservice;
+        this.missoesMapper = missoesMapper;
     }
 
     @GetMapping("/boasvindas")
@@ -22,28 +24,28 @@ public class MissoesController {
     // POST -- Mandar uma requisicao para criar uma missao
     // Adicionar missao (CREATE)
     @PostMapping("/criar")
-    public String criarMissao() {
-        return "Missao criada com sucesso!";
+    public MissoesDTO criarMissao(@RequestBody MissoesDTO missoesDTO) {
+        return missoesservice.criarMissao(missoesDTO);
     }
 
     // GET -- Mandar uma requisicao para mostrar as missoes
     // Mostrar todas as missoes (READ)
     @GetMapping("/listar")
-    public List<MissoesModel> mostrarTodasAsMissoes() {
+    public List<MissoesDTO> mostrarTodasAsMissoes() {
         return missoesservice.listarMissoes();
     }
 
     // Mostrar todas as missoes por ID
     @GetMapping("/listar/{id}")
-    public MissoesModel listarMissoesPorId(@PathVariable Long id) {
+    public MissoesDTO listarMissoesPorId(@PathVariable Long id) {
         return missoesservice.listarMissoesPorId(id);
     }
 
     // PUT -- Mandar uma requisicao para alterar uma missao
     // Alterar dados das missoes (UPDATE)
     @PutMapping("/alterar")
-    public String alterarMissaoPorId() {
-        return "Missao alterada com sucesso!";
+    public MissoesDTO alterarMissaoPorId(@PathVariable Long id, @RequestBody MissoesDTO missaoAtualizada) {
+        return missoesservice.atualizarMissao(id, missaoAtualizada);
     }
 
     // GET -- Mandar uma requisicao para mostrar uma missao por ID

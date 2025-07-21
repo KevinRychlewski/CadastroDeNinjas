@@ -1,14 +1,13 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class MissoesDTO {
     private Long id;
     private String nome;
